@@ -28,7 +28,7 @@
   let products = {
     Stash: {
       desc: "Fun and frantic card game, inspired by the classic UNO",
-      url: "https://reold.github.io",
+      url: "https://reold.github.io/stash",
       img: StashLogo,
       type: ProductType.GAME,
     },
