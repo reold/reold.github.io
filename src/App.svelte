@@ -4,6 +4,7 @@
   import SvaraLogo from "./assets/svara-logo.svg";
   import REVMLogo from "./assets/revm-logo.svg";
   import GoogleSignin from "./lib/GoogleSignin.svelte";
+  import { onMount } from "svelte";
 
   let socials = {
     GitHub: {
@@ -23,49 +24,95 @@
     },
   };
 
-  enum ProductType {
-    GAME = "game",
-    APP = "app",
-  }
+  let products: Record<
+    string,
+    {
+      desc: string;
+      url: string;
+      img: string;
+      type: string;
+    }
+  > = {};
 
-  let products = {
-    Svara: {
-      desc: "Advanced mobile music player, with multi-library support",
-      url: "https://reold.github.io/svara",
-      img: SvaraLogo,
-      type: ProductType.APP,
-    },
-    Stash: {
-      desc: "Fun and frantic card game, inspired by the classic UNO",
-      url: "https://reold.github.io/stash",
-      img: StashLogo,
-      type: ProductType.GAME,
-    },
-    Cartier: {
-      desc: "Mobile friendly, free to use Spotify playlist downloader",
-      url: "https://reold.github.io/cartier",
-      img: CartierLogo,
-      type: ProductType.APP,
-    },
-    "Reold's Voting Machine": {
-      desc: "A simple voting machine configurator app that works with all Reold built EVMs",
-      url: "https://reold.github.io/revm",
-      img: REVMLogo,
-      type: ProductType.APP,
-    },
-  };
+  onMount(async () => {
+    try {
+      const res = await fetch(
+        "https://raw.githubusercontent.com/reold/reold.github.io/refs/heads/code/data.json",
+      );
+      const data = await res.json();
+      if (data?.products) {
+        products = data.products;
+      }
+    } catch (err) {
+      console.error("Failed to load products:", err);
+    }
+  });
 </script>
 
 <div class="snap-y snap-mandatory font-mono bg-black text-white">
   <div
     class="snap-start w-screen h-[60dvh] sm:h-[75dvh] flex flex-col items-center justify-center select-none"
   >
-    <h1
-      class="text-[120px] sm:text-[200px] heading transition-all duration-100"
-    >
-      reold
-    </h1>
-    <p class="-mt-8 sm:-mt-14 mb-10">software & studio</p>
+    <div class="flex flex-row items-center justify-center">
+      <svg
+        class="aspect-square w-[75px] sm:w-[150px]"
+        viewBox="0 0 100 100"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <g clip-path="url(#clip0_3022_33)">
+          <circle cx="50" cy="50" r="50" fill="white" />
+          <path
+            d="M16 29.3478L49.1707 12V24.3913L29.2683 35.9565V64.0435L49.1707 73.9565V88L16 69.8261V29.3478Z"
+            fill="#FF8700"
+          />
+          <path
+            d="M16 29.3478L49.1707 12V24.3913L29.2683 35.9565V64.0435L49.1707 73.9565V88L16 69.8261V29.3478Z"
+            fill="#FF8700"
+          />
+          <path
+            fill-rule="evenodd"
+            clip-rule="evenodd"
+            d="M65.3415 36.3696L50 26.8696V44.2174L65.3415 36.3696Z"
+            fill="#FF8700"
+          />
+          <path
+            fill-rule="evenodd"
+            clip-rule="evenodd"
+            d="M65.3415 36.3696L50 26.8696V44.2174L65.3415 36.3696Z"
+            fill="#FF8700"
+          />
+          <path
+            d="M50.8293 12V24.3913L70.7317 35.9565V64.0435L50.8293 73.9565V88L84 69.8261V29.3478L50.8293 12Z"
+            fill="#FF8700"
+          />
+          <path
+            d="M50.8293 12V24.3913L70.7317 35.9565V64.0435L50.8293 73.9565V88L84 69.8261V29.3478L50.8293 12Z"
+            fill="#32424F"
+          />
+          <path
+            d="M50 26.8696L34.6585 36.3696L50 44.2174V26.8696Z"
+            fill="#FF8700"
+          />
+          <path
+            d="M50 26.8696L34.6585 36.3696L50 44.2174V26.8696Z"
+            fill="#32424F"
+          />
+        </g>
+        <defs>
+          <clipPath id="clip0_3022_33">
+            <rect width="100" height="100" fill="white" />
+          </clipPath>
+        </defs>
+      </svg>
+
+      <h1
+        class="font-medium text-[75px] sm:text-[150px] pl-2 heading transition-all duration-100"
+      >
+        reold
+      </h1>
+    </div>
+    <p class="-mt-2 sm:-mt-10 mb-10 text-xl sm:text-3xl">software studio</p>
     <div
       class="flex flex-row items-center space-x-[2em] max-h-[10dvh] overflow-y-scroll mb-2"
     >
@@ -86,18 +133,36 @@
         >
       {/each}
     </div>
-    <GoogleSignin />
+    <!-- <GoogleSignin /> -->
   </div>
   <div
-    class="snap-end w-screen min-h-screen flex flex-col items-center justify-center border-t-[1px] border-white/20"
+    class="pt-10 sm:pt-5 snap-end w-screen min-h-screen flex flex-col items-center justify-center border-t-[1px] border-white/20"
   >
     <h1
-      class="text-[50px] sm-text-[100px] heading-products transition-all duration-100"
+      class="flex flex-row items-center justify-center space-x-2 transition-all duration-100"
     >
-      products
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke-width="1.5"
+        stroke="currentColor"
+        class="size-10 sm:size-20 inline-block p-0 m-0"
+      >
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          d="m21 7.5-9-5.25L3 7.5m18 0-9 5.25m9-5.25v9l-9 5.25M3 7.5l9 5.25M3 7.5v9l9 5.25m0-9v9"
+        />
+      </svg>
+      <span class="inline-block text-[40px] sm:text-[80px]">products</span>
     </h1>
-    <p class="-mt-2 sm:-mt-5 mb-10">public releases from reold</p>
-    <div class="grid grid-cols-2 sm:grid-cols-3 items-center gap-1 p-1">
+    <p class="-mt-2 sm:-mt-2 mb-10 text-lg sm:text-2xl">
+      public releases from reold
+    </p>
+    <div
+      class="grid grid-cols-2 sm:grid-cols-3 items-start gap-4 p-2 overflow-clip"
+    >
       {#each Object.entries(products) as [name, config]}
         <button
           class="max-h-[60dvh] bg-white/5 p-2 rounded-md max-w-[30ch] flex flex-col items-center justify-center hover:scale-110 transition-all duration-75"
@@ -107,6 +172,7 @@
               src={config.img}
               alt={`${name}'s logo`}
               class="bg-white/5 rounded-md max-w-[100%] max-h-[50dvh]"
+              loading="lazy"
             />
             <p class="inline font-bold text-xl">{name}:</p>
 
@@ -123,21 +189,52 @@
             <p class="inline">{config.type.toUpperCase()}</p>
           </a></button
         >
+      {:else}
+        <svg
+          viewBox="0 0 24 24"
+          xmlns="http://www.w3.org/2000/svg"
+          class="size-10 text-white stroke-white col-span-2"
+          ><g
+            ><circle
+              cx="12"
+              cy="12"
+              r="9.5"
+              fill="none"
+              stroke-width="3"
+              stroke-linecap="round"
+              ><animate
+                attributeName="stroke-dasharray"
+                dur="1.5s"
+                calcMode="spline"
+                values="0 150;42 150;42 150;42 150"
+                keyTimes="0;0.475;0.95;1"
+                keySplines="0.42,0,0.58,1;0.42,0,0.58,1;0.42,0,0.58,1"
+                repeatCount="indefinite"
+              /><animate
+                attributeName="stroke-dashoffset"
+                dur="1.5s"
+                calcMode="spline"
+                values="0;-16;-59;-59"
+                keyTimes="0;0.475;0.95;1"
+                keySplines="0.42,0,0.58,1;0.42,0,0.58,1;0.42,0,0.58,1"
+                repeatCount="indefinite"
+              /></circle
+            ><animateTransform
+              attributeName="transform"
+              type="rotate"
+              dur="2s"
+              values="0 12 12;360 12 12"
+              repeatCount="indefinite"
+            /></g
+          ></svg
+        >
       {/each}
     </div>
   </div>
 </div>
 
 <style>
-  .heading {
-    text-shadow: 0px 5px 0px rgba(255, 0, 127.5, 1);
-  }
-
   .heading:hover {
-    text-shadow: 0px 10px 0px rgba(255, 0, 127.5, 1);
-  }
-
-  .heading-products {
     text-shadow: 0px 5px 0px rgba(255, 0, 127.5, 1);
   }
 </style>
