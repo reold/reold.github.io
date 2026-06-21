@@ -3,25 +3,25 @@
     "Svara": {
       "desc": "Advanced mobile music player, with multi-library support",
       "url": "https://reold.github.io/svara",
-      "img": "https://github.com/reold/svara/blob/main/public/svara.svg",
+      "img": "https://raw.githubusercontent.com/reold/svara/refs/heads/main/public/svara.svg",
       "type": "APP"
     },
     "Stash": {
       "desc": "Fun and frantic card game, inspired by the classic UNO",
       "url": "https://reold.github.io/stash",
-      "img": "/images/stash-logo.png",
+      "img": "https://raw.githubusercontent.com/reold/stash/refs/heads/main/src/assets/StashLogo.png",
       "type": "GAME"
     },
     "Cartier": {
       "desc": "Mobile friendly, free to use Spotify playlist downloader",
       "url": "https://reold.github.io/cartier",
-      "img": "/images/cartier-logo.png",
+      "img": "https://raw.githubusercontent.com/reold/cartier/refs/heads/main/public/cartier.svg",
       "type": "APP"
     },
     "Reold's Voting Machine": {
       "desc": "A simple voting machine configurator app that works with all Reold built EVMs",
       "url": "https://reold.github.io/revm",
-      "img": "/images/revm-logo.png",
+      "img": "https://raw.githubusercontent.com/reold/revm/refs/heads/main/src/assets/evmtrans.webp",
       "type": "APP"
     }
   }
