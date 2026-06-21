@@ -18,6 +18,12 @@
       "img": "https://raw.githubusercontent.com/reold/cartier/refs/heads/main/public/cartier.svg",
       "type": "APP"
     },
+    "Melana": {
+      "desc": "Modern, responsive movie streaming platform",
+      "url": "https://reold.github.io/melana",
+      "img": "https://raw.githubusercontent.com/reold/melana/refs/heads/main/public/favicon.svg",
+      "type": "APP"
+    },
     "Reold's Voting Machine": {
       "desc": "A simple voting machine configurator app that works with all Reold built EVMs",
       "url": "https://reold.github.io/revm",
