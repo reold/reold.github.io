@@ -1,10 +1,7 @@
 <script lang="ts">
-  import StashLogo from "./assets/stash-logo.png";
-  import CartierLogo from "./assets/cartier-logo.svg";
-  import SvaraLogo from "./assets/svara-logo.svg";
-  import REVMLogo from "./assets/revm-logo.svg";
-  import GoogleSignin from "./lib/GoogleSignin.svelte";
+  import DiscordSignin from "./lib/DiscordSignin.svelte";
   import { onMount } from "svelte";
+  import { processAuthFromUrl, currentUser, initAuth } from "./lib/auth";
 
   let socials = {
     GitHub: {
@@ -35,6 +32,11 @@
   > = {};
 
   onMount(async () => {
+    await initAuth();
+
+    // Capture JWT from Discord OAuth redirect
+    processAuthFromUrl();
+
     try {
       const res = await fetch(
         "https://raw.githubusercontent.com/reold/reold.github.io/refs/heads/code/data.json",
@@ -133,7 +135,7 @@
         >
       {/each}
     </div>
-    <!-- <GoogleSignin /> -->
+    <DiscordSignin user={$currentUser} />
   </div>
   <div
     class="pt-10 sm:pt-5 snap-end w-screen min-h-screen flex flex-col items-center justify-center border-t-[1px] border-white/20"
