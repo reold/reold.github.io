@@ -1,7 +1,6 @@
 <script lang="ts">
-  import DiscordSignin from "./lib/DiscordSignin.svelte";
   import { onMount } from "svelte";
-  import { processAuthFromUrl, currentUser, initAuth } from "./lib/auth";
+  import { initAuth, processAuthFromUrl, DiscordSignin } from "reold-shared";
 
   let socials = {
     GitHub: {
@@ -32,10 +31,8 @@
   > = {};
 
   onMount(async () => {
-    await initAuth();
-
-    // Capture JWT from Discord OAuth redirect
     processAuthFromUrl();
+    await initAuth();
 
     try {
       const res = await fetch(
@@ -135,7 +132,7 @@
         >
       {/each}
     </div>
-    <DiscordSignin user={$currentUser} />
+    <DiscordSignin />
   </div>
   <div
     class="pt-10 sm:pt-5 snap-end w-screen min-h-screen flex flex-col items-center justify-center border-t-[1px] border-white/20"

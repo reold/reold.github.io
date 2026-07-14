@@ -8,6 +8,7 @@
     "build": "vite build",
     "preview": "vite preview",
     "deploy": "gh-pages -d dist -b main",
+    "bandd": "vite build && gh-pages -d dist -b main",
     "check": "svelte-check --tsconfig ./tsconfig.app.json && tsc -p tsconfig.node.json"
   },
   "devDependencies": {
@@ -22,6 +23,10 @@
   },
   "dependencies": {
     "@tailwindcss/vite": "^4.3.1",
+    "reold-shared": "github:reold/reold-shared",
     "tailwindcss": "^4.3.1"
-  }
+  },
+  "trustedDependencies": [
+    "reold-shared"
+  ]
 }
