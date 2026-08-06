@@ -6,7 +6,7 @@
       "name": "reold.github.io",
       "dependencies": {
         "@tailwindcss/vite": "^4.3.1",
-        "reold-shared": "github:reold/reold-shared",
+        "reold-shared": "github:reold/reold-shared#main",
         "tailwindcss": "^4.3.1",
       },
       "devDependencies": {
@@ -273,7 +273,7 @@
 
     "readdirp": ["readdirp@4.1.2", "", {}, "sha512-GDhwkLfywWL2s6vEjyhri+eXmfH6j1L7JE27WhqLeYzoh/A3DBaYGEj2H/HFZCn/kMfim73FXxEJTw06WtxQwg=="],
 
-    "reold-shared": ["reold-shared@github:reold/reold-shared#2d755be", { "peerDependencies": { "svelte": "^5.0.0" } }, "reold-reold-shared-2d755be", "sha512-4jUmELXgPgCGHTMKdpkSNSba4me7tpl6eBk/o8SXa7OebAjNZ+vTFoiB38fQwW10bdvEKwJXTMEBpf/EflaFoQ=="],
+    "reold-shared": ["reold-shared@github:reold/reold-shared#a65f916", { "peerDependencies": { "svelte": "^5.0.0" } }, "reold-reold-shared-a65f916", "sha512-0Zaf5AtujcSbZag2oSVHpAqHOkoa9sjm74j/Qh3fc5aubO+9wUshRq88487cXGS5oBOeksraKQu0cj0mCW2NZQ=="],
 
     "reusify": ["reusify@1.1.0", "", {}, "sha512-g6QUff04oZpHs0eG5p83rFLhHeV00ug/Yf9nZM6fLeUrPguBTkTQOdpAWWspMh55TZfVQDPaN3NQJfbVRAxdIw=="],
 

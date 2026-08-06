@@ -23,7 +23,7 @@
   },
   "dependencies": {
     "@tailwindcss/vite": "^4.3.1",
-    "reold-shared": "github:reold/reold-shared",
+    "reold-shared": "github:reold/reold-shared#main",
     "tailwindcss": "^4.3.1"
   },
   "trustedDependencies": [
