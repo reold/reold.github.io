@@ -20,8 +20,8 @@
     },
     "Melana": {
       "desc": "Modern, responsive movie streaming platform",
-      "url": "https://reold.github.io/melana",
-      "img": "https://raw.githubusercontent.com/reold/melana/refs/heads/main/public/favicon.svg",
+      "url": "https://reold.github.io/melana-beta",
+      "img": "https://raw.githubusercontent.com/reold/melana-beta/refs/heads/main/src/lib/assets/favicon.svg",
       "type": "APP"
     },
     "Reold's Voting Machine": {
