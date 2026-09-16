@@ -4,27 +4,32 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "vite",
+    "dev": "vite dev",
     "build": "vite build",
     "preview": "vite preview",
-    "deploy": "gh-pages -d dist -b main",
-    "bandd": "vite build && gh-pages -d dist -b main",
-    "check": "svelte-check --tsconfig ./tsconfig.app.json && tsc -p tsconfig.node.json"
+    "prepare": "svelte-kit sync || echo ''",
+    "check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
+    "check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch",
+    "deploy": "gh-pages -d build -b main",
+    "bandd": "vite build && gh-pages -d build -b main"
   },
   "devDependencies": {
+    "@sveltejs/adapter-auto": "^7.0.1",
+    "@sveltejs/adapter-static": "^3.0.10",
+    "@sveltejs/kit": "^2.63.0",
     "@sveltejs/vite-plugin-svelte": "^7.1.2",
     "@tsconfig/svelte": "^5.0.8",
     "@types/node": "^24.12.3",
     "gh-pages": "^6.3.0",
-    "svelte": "^5.55.5",
-    "svelte-check": "^4.4.8",
-    "typescript": "~6.0.2",
-    "vite": "^8.0.12"
+    "svelte": "^5.56.1",
+    "svelte-check": "^4.6.0",
+    "typescript": "^6.0.3",
+    "vite": "^8.0.16"
   },
   "dependencies": {
-    "@tailwindcss/vite": "^4.3.1",
+    "@tailwindcss/vite": "^4.3.3",
     "reold-shared": "github:reold/reold-shared#main",
-    "tailwindcss": "^4.3.1"
+    "tailwindcss": "^4.3.3"
   },
   "trustedDependencies": [
     "reold-shared"
